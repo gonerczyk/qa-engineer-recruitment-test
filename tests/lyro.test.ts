@@ -6,6 +6,9 @@ test.describe("Lyro AI tests", () => {
       await page.goto(
         `https://${process.env.DOMAIN}/panel/?project_public_key=${process.env.PROJECT_PUBLIC_KEY}&api_token=${process.env.API_TOKEN}`
       );
+      await expect(
+        page.getByRole("heading", { name: "Dashboard" })
+      ).toBeInViewport();
     });
     await test.step("Test from data sources section", async () => {
       await page.goto(
